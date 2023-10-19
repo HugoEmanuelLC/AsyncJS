@@ -48,7 +48,13 @@ function searchDatas(word) {
             });
             
         })
-        .catch(e => console.error(e))
+        .catch((e) => {
+            console.error(e);
+            let h4 = document.createElement('h4')
+            h4.innerText = 'Désolé, Probleme de réseaux !!!'
+            text_datas.innerText = ''
+            text_datas.append(h4)
+        })
 }
 function itemId(id) {
     let titre_ingredient = document.createElement('h4')
