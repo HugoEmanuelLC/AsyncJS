@@ -124,15 +124,15 @@ document.addEventListener('submit', (e)=> e.preventDefault())
 
 
 
-search_input.addEventListener('keyup', (e) => {
-    console.log(e.target.value);
-    if (e.target.value.length > 2) {
-        let rep = async ()=>{
-            return await searchDatas(e.target.value)
-        }
-        rep()
-    }else{}
-})
+// search_input.addEventListener('keyup', (e) => {
+//     console.log(e.target.value);
+//     if (e.target.value.length > 2) {
+//         let rep = async ()=>{
+//             return await searchDatas(e.target.value)
+//         }
+//         rep()
+//     }else{}
+// })
 
 
 btn_submit.addEventListener('click', (e) => {
