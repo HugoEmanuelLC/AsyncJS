@@ -16,7 +16,7 @@ const closeButton = document.querySelector("dialog button");
 
 
 function searchDatas(word) {
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${word}`)
+    fetch(`http://www.themealdb.com/api/json/v1/1/search.php?s=${word}`)
         .then(datas => datas.json())
         .then(data => {
             console.log(data);
@@ -52,7 +52,7 @@ function searchDatas(word) {
 }
 function itemId(id) {
     let titre_ingredient = document.createElement('h4')
-    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+    fetch(`http://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
         .then(datas => datas.json())
         .then(data => {
             console.log(data);
