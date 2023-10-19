@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Final Exo | Api's</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="blocs logo">
+                <a href="#">LOGO</a>
+            </div>
+
+            <!-- ADD TXT -->
+            <div class="blocs bloc_search">
+                <form action="#">
+                    <input type="search" name="search" id="search">
+                    <button><i class='bx bx-search'></i></button>
+                </form>
+            </div>
+
+            <!-- LIKES, BASKET -->
+            <div class="blocs bloc_basket_likes">
+                <ul>
+                    <li><i class='bx bx-heart'></i></li>
+                    <li><i class='bx bxs-basket'></i></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- MODAL -->
+    <!-- <dialog>
+        <button autofocus>Close</button>
+        <div class="bloc"></div>
+    </dialog> -->
+    <div id="modal" class="modal_close">
+        <button class="btn_modal_close" autofocus>
+            <i class='bx bx-zoom-out'></i>
+        </button>
+        <div class="item"></div>
+    </div>
+
+
+
+    <main>
+        <div class="container">
+                <!-- <button class="btn_text_datas_close" autofocus>
+                    <i class='bx bx-window-close'></i>
+                </button> -->
+            <section class="blocs_text_datas">
+                <!-- SHOW TXT -->
+                <div id="text_datas"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
