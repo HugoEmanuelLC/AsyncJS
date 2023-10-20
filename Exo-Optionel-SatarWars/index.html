@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- LIBRAIRY JQUERY -->
+    <script type="text/javascript" src="src/jquery/jquery.min.js"></script>
+    <!-- ICONS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- STYLESHEET -->
     <link rel="stylesheet" href="styles/style.css">
     <title>Star Wars | Api's Exo Optionel</title>
 </head>
@@ -12,27 +16,83 @@
 <body>
     <div id="page">
 
-        <!-- <header>
-            <div class="container">
-            </div>
-        </header> -->
-
-
-
-
-
         <!-- MODAL -->
-        <div id="modal" class="modal_close">
+        <div id="modal" class="modal_open">
             <button class="btn_modal_close" autofocus>
                 <i class='bx bx-zoom-out'></i>
             </button>
-            <div class="item"></div>
+            <div class="bloc_items">
+                <div class="item">
+                    <img class="photo_movie" src="https://img.freepik.com/premium-photo/scene-building-desert-with-star-wars-scene_899894-15841.jpg" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" src="https://img.freepik.com/premium-photo/scene-building-desert-with-star-wars-scene_899894-15841.jpg" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" src="https://img.freepik.com/premium-photo/scene-building-desert-with-star-wars-scene_899894-15841.jpg" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+                <div class="item">
+                    <img class="photo_movie" alt="photo movie">
+                    <h3>Movie title</h3>
+                </div>
+            </div>
         </div>
+        <template class="template_modal_movie">
+
+        </template>
 
 
 
         <main>
             <div class="container">
+
+                <nav>
+                    <!-- intro: -->
+                    <a class="a_scroll_up"><i class='bx bx-home-alt-2'></i></i></a>
+                    <!-- films: -->
+                    <a class="a_scroll_deat_star"><i class='bx bxs-film'></i></a>
+                    <!-- starships: -->
+                    <a class="a_scroll_starship_1"><i class='bx bx-paper-plane'></i></a>
+                    <!-- planets: -->
+                    <a class="a_scroll_planet"><i class='bx bx-planet'></i></a>
+                    <!-- characters: -->
+                    <a class="a_scroll_characters" href="#"><i class='bx bxs-user'></i></a>
+                </nav>
 
                 <section class="bloc_intro">
                     <div class="intro">
@@ -47,14 +107,18 @@
                     </div>
                 </section>
 
-                <section class="bloc_starship_1">
+                <section id="bloc_starship_1" class="bloc_starship_1">
                     <img class="starship_1 link_img" src="images/spaceships/580b585b2edbce24c47b2d2d.png" alt="">
                     <img class="starship_2 link_img" src="images/spaceships/580b585b2edbce24c47b2d2d.png" alt="">
                     <img class="death_star link_img" src="images/spaceships/Death_Star_2nd_35408.png" alt="">
-                    <img class="mustafar_planet" src="images/Mustafar-planet.png" alt="">
+                    <img class="mustafar_planet link_img" src="images/Mustafar-planet.png" alt="">
                 </section>
 
-                <section class="bloc_meteors">
+                <!-- <section id="bloc_planet" class="bloc_planet">
+                    <img class="mustafar_planet link_img" src="images/Mustafar-planet.png" alt="">
+                </section> -->
+
+                <section id="bloc_meteors" class="bloc_meteors">
                     <img class="multi_meteors" src="images/objets/multi-meteors.png" alt="">
                     <img class="meteor_fire" src="images/objets/meteor_PNG22.png" alt="">
                     <img class="faucon_millenium link_img" src="images/spaceships/Faucon_Millenium.png" alt="">
@@ -65,8 +129,13 @@
     </div>
 
 
-    <script src="./src/imakewebthings-waypoints-34d9f6d/lib/noframework.waypoints.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+    <!--ANIMATION SCROLL AUTO-->
+    <script type="text/javascript" src="script/scrolls_animation.js"></script>
+    <!-- LIBRAIRY WAYPOINTS -->
+    <!-- <script src="./src/imakewebthings-waypoints-34d9f6d/lib/noframework.waypoints.min.js"></script> -->
+    <!-- LIBRAIRY PARALLAX -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script> -->
+    <!-- <script src="script/datas/script.js"></script> -->
     <script src="script.js"></script>
 </body>
 

@@ -4,10 +4,14 @@
 // // let btn_text_datas_close_i = 'bx bx-window-close'
 // let btn_text_datas_close_i = 'i_close'
 
+
+
 // MODAL
 let modal = document.getElementById('modal')
 let modal_item = modal.querySelector('.item')
 let modal_btn_modal_close = modal.querySelector('.btn_modal_close')
+
+
 
 // MODAL
 function modalOpenClose() {
@@ -17,24 +21,27 @@ function modalOpenClose() {
 }
 
 
+
+// SIBLES
 let intro = document.querySelector('.intro')
 let page_bckgrd = document.querySelector('#page')
 let starship_1 = document.querySelector('.starship_1')
 let starship_2 = document.querySelector('.starship_2')
 let bloc_starship_1 = document.querySelector('.bloc_starship_1')
 let death_star = document.querySelector('.death_star')
-let multi_meteors = document.querySelector('.multi_meteors')
+let mustafar_planet = document.querySelector('.mustafar_planet')
+// let multi_meteors = document.querySelector('.multi_meteors')
 let meteor_fire = document.querySelector('.meteor_fire')
+
 
 
 // document.addEventListener('submit', (e)=> e.preventDefault())
 document.addEventListener('click', (e)=>  {
     e.stopPropagation()
-    // console.log(bloc_starship_1.offsetTop);
-    // console.log(starship_1.width);
 });
 
-// let count = 0
+
+
 let starship_1_taille = starship_1.width
 let starship_2_taille = starship_2.width
 document.addEventListener('scroll', (e)=>{
@@ -69,15 +76,21 @@ document.addEventListener('scroll', (e)=>{
 
 })
 
+async function dataFetch(url, error){
+    return await fetch(url)
+        .then(req => req.json())
+        .then(data => data)
+        .catch(err => console.log(err+": "+error))
+}
 
-
-
-
-
-
-
-
-
+const movies = async () => {
+    const {results} = await dataFetch('https://swapi.dev/api/films/', 'probleme de réseau')
+    // console.log(results);
+    results.forEach(ele => {
+        // console.log(ele.title);
+        
+    });
+}
 
 
 // MODAL
@@ -86,6 +99,16 @@ starship_1.addEventListener("click", () => {
     console.log('clique');
     modalOpenClose();
 });
+death_star.addEventListener("click", () => {
+    console.log('clique');
+    modalOpenClose();
+});
+mustafar_planet.addEventListener("click", () => {
+    console.log('clique');
+    modalOpenClose();
+    movies()
+});
+
 // "Close" button closes the dialog
 modal_btn_modal_close.addEventListener("click", () => {
     modalOpenClose()
