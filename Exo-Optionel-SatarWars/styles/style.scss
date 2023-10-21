@@ -193,51 +193,46 @@ nav{
     transition: $transition_4m;
     position: fixed;
         z-index: 1000;
-    background-image: url('../images/991379.jpg');
+    // background-image: url('https://movietalkexpress.files.wordpress.com/2015/04/star-wars-artwork-wallpaper.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    // opacity: 0.95;
     // @extend .blur;
     @include Dfx-JCc-AIc();
     overflow-x: hidden;
     // overflow-y: scroll;
-
+    // @include Border_Test(gray);
+    
     .bloc_items{
-        @include Border_Test(red);
+        // @include Border_Test(red);
+        background-color: #000000c7;
+        @extend .blur;
         overflow-y: scroll;
         width: 100%;
         min-height: 100%;
-        // background-color: $bg_color_4;
-        padding: 100px 20px 0;
+        padding: 100px 50px 30px;
         display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(auto-fit, minmax(30%, 1fr));
             gap: 20px;
-        max-width: 800px;
-        // display: flex;
-        //     align-items: flex-start;
-        //     justify-content: flex-start;
-        // gap: 20px;
-        // overflow-y: scroll;
-        // img{
-        //     width: 50%;
-        //     height: auto;
-        //     object-fit: cover;
-        // }
+        max-width: 1000px;
+        .gif_loading{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
         .item{
             @include Border_Test(white);
             position: relative;
-            // overflow: hidden;
+            overflow: hidden;
             @include Dfx-JCc-AIc();
+            transition: 300ms;
 
-            img{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                // opacity: 0.5;
-            }
             h3{
                 @include Border_Test(blue);
                 @include Dfx-JCc-AIc();
@@ -247,6 +242,17 @@ nav{
                 height: 100%;
                 color: white;
                 text-shadow: $txt_shadow;
+                cursor: pointer;
+                &:hover{
+                    background-color: rgba(0, 0, 0, 0.8);
+                    transition: 300ms ;
+                }
+            }
+            img{
+                @include Border_Test(red);
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
         }
     }
@@ -278,6 +284,7 @@ nav{
     position: absolute;
         top: 20px;
         right: 40px;
+        z-index: +10;
     cursor: pointer;
 }
 // ////////////////////////////////////////////////////////////////////

@@ -5,12 +5,23 @@
 // let btn_text_datas_close_i = 'i_close'
 
 
+// SIBLES
+let intro = document.querySelector('.intro')
+let page_bckgrd = document.querySelector('#page')
+let starship_1 = document.querySelector('.starship_1')
+let starship_2 = document.querySelector('.starship_2')
+let bloc_starship_1 = document.querySelector('.bloc_starship_1')
+let death_star = document.querySelector('.death_star')
+let mustafar_planet = document.querySelector('.mustafar_planet')
+let multi_meteors = document.querySelector('.multi_meteors')
+let meteor_fire = document.querySelector('.meteor_fire')
+// TEMPLATE
+let template_loading = document.querySelector('.template_loading')
 
 // MODAL
 let modal = document.getElementById('modal')
-let modal_item = modal.querySelector('.item')
+let modal_bloc_items = modal.querySelector('.bloc_items')
 let modal_btn_modal_close = modal.querySelector('.btn_modal_close')
-
 
 
 // MODAL
@@ -21,18 +32,26 @@ function modalOpenClose() {
 }
 
 
+// IMAGES MOVIES
+let tab_img_movies = [
+    {movie: "A New Hope", urlImg: "https://images6.alphacoders.com/613/thumb-1920-613328.jpg"},
+    {movie: "The Empire Strikes Back", urlImg: "https://images8.alphacoders.com/107/1079738.jpg"},
+    {movie: "Return of the Jedi", urlImg: "https://lumiere-a.akamaihd.net/v1/images/052423-hero_3c660922.jpeg?region=0,0,990,743&width=960"},
+    {movie: "The Phantom Menace", urlImg: "https://wallpapers.com/images/featured/the-phantom-menace-gj905516peb1f6h7.jpg"},
+    {movie: "Attack of the Clones", urlImg: "https://wallpapers.com/images/hd/2560x1600-star-wars-518vy07iwleqen4l.jpg"},
+    {movie: "Revenge of the Sith", urlImg: "https://images.alphacoders.com/131/1319774.jpeg"},
+]
 
-// SIBLES
-let intro = document.querySelector('.intro')
-let page_bckgrd = document.querySelector('#page')
-let starship_1 = document.querySelector('.starship_1')
-let starship_2 = document.querySelector('.starship_2')
-let bloc_starship_1 = document.querySelector('.bloc_starship_1')
-let death_star = document.querySelector('.death_star')
-let mustafar_planet = document.querySelector('.mustafar_planet')
-// let multi_meteors = document.querySelector('.multi_meteors')
-let meteor_fire = document.querySelector('.meteor_fire')
 
+// MODAL BACKGROUND 
+let tab_img_modal = [
+    {nameModal: "movies", urlImg: "https://movietalkexpress.files.wordpress.com/2015/04/star-wars-artwork-wallpaper.jpg"},
+    {nameModal: "starships", urlImg: ""},
+    {nameModal: "planets", urlImg: ""},
+    {nameModal: "characters", urlImg: "https://i.pinimg.com/originals/88/b6/d7/88b6d75cd2ea3dd486b9e4218db26ea8.jpg"},
+    // {nameModal: "", urlImg: "https://wallpapers.com/images/hd/2560x1600-star-wars-518vy07iwleqen4l.jpg"},
+    // {nameModal: "", urlImg: "https://images.alphacoders.com/131/1319774.jpeg"},
+]
 
 
 // document.addEventListener('submit', (e)=> e.preventDefault())
@@ -41,7 +60,7 @@ document.addEventListener('click', (e)=>  {
 });
 
 
-
+// EFFET PARALLAX
 let starship_1_taille = starship_1.width
 let starship_2_taille = starship_2.width
 document.addEventListener('scroll', (e)=>{
@@ -76,19 +95,88 @@ document.addEventListener('scroll', (e)=>{
 
 })
 
-async function dataFetch(url, error){
-    return await fetch(url)
-        .then(req => req.json())
-        .then(data => data)
-        .catch(err => console.log(err+": "+error))
-}
+
+// async function dataFetch(url, error){
+//     return await fetch(url)
+//         .then(req => req.json())
+//         .then(data => data)
+//         .catch(err => console.log(err+": "+error))
+// }
+
+
+// const movies = async () => {
+//     tab_img_modal.filter(f => {f.nameModal == 'movies' ? modal.style.backgroundImage = `url('${f.urlImg}')` : ''})
+//     modal_bloc_items.innerHTML = template_loading.innerHTML
+//     const {results} = await dataFetch('https://swapi.dev/api/films/', 'probleme de réseau')
+//     modal_bloc_items.innerText = ""
+//     results.forEach(ele => {
+//         // console.log(ele.title);
+//         let item = document.createElement('div')
+//         let img = document.createElement('img')
+//         let h3 = document.createElement('h3')
+
+//         item.classList.add('item')
+//         img.classList.add('photo_movie')
+//         tab_img_movies.filter(f => {f.movie == ele.title ? img.src = f.urlImg : ''})
+        
+//         h3.innerText = ele.title
+        
+//         item.append(h3, img)
+//         modal_bloc_items.appendChild(item)
+//     });
+// }
+// movies()
+
 
 const movies = async () => {
-    const {results} = await dataFetch('https://swapi.dev/api/films/', 'probleme de réseau')
-    // console.log(results);
-    results.forEach(ele => {
+    tab_img_modal.filter(f => {f.nameModal == 'movies' ? modal.style.backgroundImage = `url('${f.urlImg}')` : ''})
+    modal_bloc_items.innerHTML = template_loading.innerHTML
+    let tamponTab;
+    tamponTab = await reqMoviesDatas();
+    tamponTab = JSON.parse(tamponTab)
+    console.log(tamponTab);
+    
+    modal_bloc_items.innerText = ""
+    tamponTab.forEach(ele => {
         // console.log(ele.title);
+        let item = document.createElement('div')
+        let img = document.createElement('img')
+        let h3 = document.createElement('h3')
+
+        item.classList.add('item')
+        img.classList.add('photo_movie')
+        tab_img_movies.filter(f => {f.movie == ele.title ? img.src = f.urlImg : ''})
         
+        h3.innerText = ele.title
+        
+        item.append(h3, img)
+        modal_bloc_items.appendChild(item)
+    });
+}
+
+const starship = async () => {
+    tab_img_modal.filter(f => {f.nameModal == 'starships' ? modal.style.backgroundImage = `url('${f.urlImg}')` : ''})
+    modal_bloc_items.innerHTML = template_loading.innerHTML
+    let tamponTab;
+    tamponTab = await reqStarshipDatas();
+    tamponTab = JSON.parse(tamponTab)
+    console.log(tamponTab);
+    
+    modal_bloc_items.innerText = ""
+    tamponTab.forEach(ele => {
+        // console.log(ele.title);
+        let item = document.createElement('div')
+        let img = document.createElement('img')
+        let h3 = document.createElement('h3')
+
+        item.classList.add('item')
+        img.classList.add('photo_movie')
+        tab_img_movies.filter(f => {f.movie == ele.name ? img.src = f.urlImg : ''})
+        
+        h3.innerText = ele.name
+        
+        item.append(h3, img)
+        modal_bloc_items.appendChild(item)
     });
 }
 
@@ -96,17 +184,18 @@ const movies = async () => {
 // MODAL
 // "Show the dialog" button opens the dialog modally
 starship_1.addEventListener("click", () => {
-    console.log('clique');
+    console.log('starship_1');
     modalOpenClose();
+    starship()
 });
 death_star.addEventListener("click", () => {
-    console.log('clique');
-    modalOpenClose();
-});
-mustafar_planet.addEventListener("click", () => {
-    console.log('clique');
+    console.log('death_star');
     modalOpenClose();
     movies()
+});
+mustafar_planet.addEventListener("click", () => {
+    console.log('mustafar_planet');
+    modalOpenClose();
 });
 
 // "Close" button closes the dialog
