@@ -332,8 +332,6 @@ main .bloc_starship_1 .death_star {
   width: 40vh;
 }
 main .bloc_meteors {
-  border: solid red 4px;
-  min-height: 150vh;
   padding-bottom: 300px;
   position: relative;
 }
@@ -371,4 +369,8 @@ main .bloc_meteors .faucon_millenium:hover {
   bottom: 0;
   left: 0;
   border-radius: 50%;
+}
+
+footer {
+  height: 50vh;
 }/*# sourceMappingURL=style.css.map */

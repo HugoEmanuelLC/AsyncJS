@@ -435,8 +435,8 @@ main {
         }
     }
     .bloc_meteors{
-        border: solid red 4px;
-        min-height: 150vh;
+        // border: solid red 4px;
+        // min-height: 200vh;
         padding-bottom: 300px;
         position: relative;
 
@@ -498,6 +498,12 @@ main {
     
 
 // bloc_death_start
-.bloc_meteors{
+// .bloc_meteors{
     // border: solid 3px blue;
+// }
+
+
+footer{
+    height: 50vh;
+    // background-color: #000000;
 }

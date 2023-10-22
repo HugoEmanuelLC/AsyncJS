@@ -15,8 +15,8 @@ let template_loading = document.querySelector('.template_loading')
 let template_error = document.querySelector('.template_error')
 
 // Audio
-let audio = document.querySelector('video')
-let btn_audio = document.querySelector('.btn_audio')
+// let audio = document.querySelector('video')
+// let btn_audio = document.querySelector('.btn_audio')
 
 // MODAL
 let modal = document.getElementById('modal')
@@ -53,12 +53,10 @@ async function modalInfos(value){
         modal_bloc_items_infos.innerText = ""
         if (background == null) {
             // si null, c'est la list de films
+            tab_img_movies.filter(f => {f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
             
             req.filter(ele => {
                 if (ele.title == value) {
-
-                    tab_img_movies.filter(f => {f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
-                    
                     let item = document.createElement('div')
                     let h2 = document.createElement('h2')
                     let title_actor = document.createElement('h4')
@@ -87,13 +85,13 @@ async function modalInfos(value){
                 }
             })
         } else {
+            background.filter(f => {f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
+            
             req.filter(ele => {
                 if (ele.name == value) {
                     let item = document.createElement('div')
                     let h2 = document.createElement('h2')
                     let ul = document.createElement('ul')
-        
-                    background.filter(f => {f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
         
                     let li_title = document.createElement('li')
                     li_title.innerText = "Present in these films:"
@@ -144,50 +142,6 @@ async function modalInfos(value){
             requetInfosDatas(tab_img_characters ,value, 'Character', reqCharactersDatas)
         }
     })
-
-
-
-    // modal_bloc_items_infos.innerHTML = template_loading.innerHTML
-    // let req = await reqCharactersDatas()
-    // req = JSON.parse(req)
-    
-    // req.filter(ele => {
-
-    //     if (ele.name == value) {
-            
-    //         let item = document.createElement('div')
-    //         let h2 = document.createElement('h2')
-    //         let ul = document.createElement('ul')
-
-    //         tab_img_characters.filter(f => {f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
-
-    //         let li_title = document.createElement('li')
-    //         li_title.innerText = "Present in these films:"
-    //         ul.appendChild(li_title)
-
-    //         ele.films.forEach(film => {
-    //             let data = async ()=>{
-    //                 let li = document.createElement('li')
-    //                 let title = await dataFetch(film, 'error de serveur')
-
-    //                 li.innerText = title.title
-    //                 // li.classList.add('li')
-    //                 ul.appendChild(li)
-    //             }
-    //             data()
-    //         })
-
-
-    //         item.classList.add('item')
-    //         h2.innerText = `Character: ${value}`
-    //         modal_bloc_items_infos.innerText = ""
-
-    //         item.append(h2,ul)
-    //         modal_bloc_items_infos.append(item)
-    //     } else {
-    //         ''
-    //     }
-    // })
 }
 
 
@@ -394,10 +348,10 @@ modal_btn_modal_close_infos.addEventListener("click", () => {
 
 
 // AUDIO
-btn_audio.addEventListener('click', ()=>{
-    console.log('btn_audio');
-    audio.classList.toggle('video_on') 
-} )
+// btn_audio.addEventListener('click', ()=>{
+//     console.log('btn_audio');
+//     audio.classList.toggle('video_on') 
+// } )
 
 
 
