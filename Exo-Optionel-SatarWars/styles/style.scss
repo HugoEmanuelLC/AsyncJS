@@ -171,7 +171,7 @@ nav{
         padding: 400px 50px 0;
         line-height: 100px;
         color: gold;
-        
+        // h1,h2,h3,p{}
         h1{font-size: 80px;}
         h2{font-size: 60px;}
         h3{font-size: 40px;}
@@ -200,16 +200,17 @@ nav{
     background-position: center;
     // opacity: 0.95;
     // @extend .blur;
-    @include Dfx-JCc-AIc();
+    // @include Dfx-JCc-AIc();
     overflow-x: hidden;
     // overflow-y: scroll;
     // @include Border_Test(gray);
     
     .bloc_items{
         // @include Border_Test(red);
+        position: relative;
         background-color: #000000c7;
         @extend .blur;
-        overflow-y: scroll;
+        // overflow-y: scroll;
         width: 100%;
         min-height: 100%;
         padding: 100px 50px 30px;
@@ -218,6 +219,7 @@ nav{
             grid-template-rows: repeat(auto-fit, minmax(30%, 1fr));
             gap: 20px;
         max-width: 1000px;
+        margin: 0 auto;
         .gif_loading{
             position: absolute;
             top: 0;
@@ -259,6 +261,66 @@ nav{
     h4{
         margin-bottom: 20px;
     }
+}
+#modal_infos{
+    // border: solid green 5px;
+    transition: $transition_4m;
+    position: fixed;
+        z-index: 1100;
+    background-color: #000000;
+    // background-image: url('https://movietalkexpress.files.wordpress.com/2015/04/star-wars-artwork-wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    // margin: 0 auto;
+    @include Dfx-JCc-AIc();
+
+    .bloc_items{
+        background-color: $bg_color_2_2;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        box-shadow: $box_shadow_2;
+        // border: solid blue 5px;
+        position: relative;
+        padding: 100px 50px 30px;
+
+        h2{
+            // border: solid red 2px;
+            margin: 0 0 50px 0;
+        }
+        
+        ul{
+            // border: solid green 2px;
+            li:first-child{
+                background-color: gray;
+                list-style: none;
+                font-weight: 800;
+                padding: 20px 10px;
+            }
+            li{
+                list-style: circle;
+                list-style-position: inside;
+                padding: 5px;
+            }
+        }
+    }
+    // .item{
+        // background-color: white;
+        // border: solid white 5px;
+    // }
+
+    // .btn_modal_close{
+    //     z-index: +15;
+    // }
+}
+.gif_loading{
+    border: solid red 5px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
 }
 .modal_open{
     width: 100vw;
