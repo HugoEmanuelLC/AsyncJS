@@ -14,6 +14,10 @@ let faucon_millenium = document.querySelector('.faucon_millenium')
 let template_loading = document.querySelector('.template_loading')
 let template_error = document.querySelector('.template_error')
 
+// Audio
+let audio = document.querySelector('video')
+let btn_audio = document.querySelector('.btn_audio')
+
 // MODAL
 let modal = document.getElementById('modal')
 let modal_bloc_items = modal.querySelector('.bloc_items')
@@ -41,67 +45,103 @@ function modalInfosOpenClose() {
 
 // DATAS INFOS
 async function modalInfos(value){
-    modal_bloc_items_infos.innerHTML = template_loading.innerHTML
+    // modal_bloc_items_infos.innerHTML = template_loading.innerHTML
 
-    const req = async (value) => {
-        let req = await reqCharactersDatas()
-        modal_bloc_items_infos.innerText = ""
+    const requetInfosDatas = async (background= null ,value, titre, fnc) => {
+        let req = await fnc()
         req = JSON.parse(req)
-        req.filter(ele => {
-            if (ele.name == value) {
-                let item = document.createElement('div')
-                let h2 = document.createElement('h2')
-                let ul = document.createElement('ul')
-    
-                tab_img_characters.filter(f => {f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
-    
-                let li_title = document.createElement('li')
-                li_title.innerText = "Present in these films:"
-                ul.appendChild(li_title)
-    
-                ele.films.forEach(film => {
-                    let data = async ()=>{
-                        let li = document.createElement('li')
-                        let title = await dataFetch(film, 'error de serveur')
-    
-                        li.innerText = title.title
-                        // li.classList.add('li')
-                        ul.appendChild(li)
-                    }
-                    data()
-                })
-    
-                item.classList.add('item')
-                h2.innerText = `Character: ${value}`
-    
-                item.append(h2,ul)
-                modal_bloc_items_infos.append(item)
-            }
-        })
+        modal_bloc_items_infos.innerText = ""
+        if (background == null) {
+            // si null, c'est la list de films
+            
+            req.filter(ele => {
+                if (ele.title == value) {
+
+                    tab_img_movies.filter(f => {f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
+                    
+                    let item = document.createElement('div')
+                    let h2 = document.createElement('h2')
+                    let title_actor = document.createElement('h4')
+                    let director = document.createElement('p')
+                    let p = document.createElement('p')
+                    let text='';
+
+                    title_actor.innerText = "Characters present:"
+                    item.classList.add('item')
+                    h2.innerText = `${titre}: ${value}`
+                    director.innerText = `Director: ${ele.director}`
+
+                    item.append(h2, director, title_actor)
+        
+                    ele.characters.forEach(character => {
+                        let data = async ()=>{
+                            let name = await dataFetch(character, 'error de serveur')
+                            text += `${name.name}, `
+                            p.innerText = text
+                        }
+                        data()
+                    })
+                    
+                    item.appendChild(p)
+                    modal_bloc_items_infos.append(item)
+                }
+            })
+        } else {
+            req.filter(ele => {
+                if (ele.name == value) {
+                    let item = document.createElement('div')
+                    let h2 = document.createElement('h2')
+                    let ul = document.createElement('ul')
+        
+                    background.filter(f => {f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
+        
+                    let li_title = document.createElement('li')
+                    li_title.innerText = "Present in these films:"
+                    ul.appendChild(li_title)
+        
+                    ele.films.forEach(film => {
+                        let data = async ()=>{
+                            let li = document.createElement('li')
+                            let title = await dataFetch(film, 'error de serveur')
+        
+                            li.innerText = title.title
+                            ul.appendChild(li)
+                        }
+                        data()
+                    })
+        
+                    item.classList.add('item')
+                    h2.innerText = `${titre}: ${value}`
+        
+                    item.append(h2,ul)
+                    modal_bloc_items_infos.append(item)
+                }
+            })
+        }
     }
 
     tab_img_movies.filter(a => {
         if (a.nameTitle == value) {
             console.log('movie');
-            modal_bloc_items_infos.innerHTML = template_error.innerHTML
+            requetInfosDatas(null, value, 'Film', reqMoviesDatas)
         }
     })
     tab_img_starships.filter(a => {
         if (a.nameTitle == value) {
             console.log('starship');
-            modal_bloc_items_infos.innerHTML = template_error.innerHTML
+            requetInfosDatas(tab_img_starships ,value, 'Starship', reqStarshipDatas)
         }
     })
     tab_img_planets.filter(a => {
         if (a.nameTitle == value) {
             console.log('planet');
-            modal_bloc_items_infos.innerHTML = template_error.innerHTML
+            requetInfosDatas(tab_img_planets ,value, 'Planet', reqPlanetsDatas)
         }
     })
     tab_img_characters.filter(a => {
         if (a.nameTitle == value) {
             console.log('character');
-            req(value)
+            requetInfosDatas(tab_img_characters ,value, 'Character', reqCharactersDatas)
         }
     })
 
@@ -353,7 +393,11 @@ modal_btn_modal_close_infos.addEventListener("click", () => {
 });
 
 
-
+// AUDIO
+btn_audio.addEventListener('click', ()=>{
+    console.log('btn_audio');
+    audio.classList.toggle('video_on') 
+} )
 
 
 

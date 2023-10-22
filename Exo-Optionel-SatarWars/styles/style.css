@@ -69,6 +69,30 @@ img {
   max-height: 100%;
 }
 
+video {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2000;
+}
+
+.video_off {
+  height: 0;
+  width: 0;
+}
+
+.video_on {
+  height: 30px;
+  width: 200px;
+}
+
+.btn_audio {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1999;
+}
+
 /* SCROLLBAR */
 nav {
   position: fixed;
@@ -153,7 +177,7 @@ nav i {
   opacity: 0.8;
 }
 #modal .bloc_items .item {
-  border: solid 3px white;
+  border: groove 1px white;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -162,7 +186,6 @@ nav i {
   transition: 300ms;
 }
 #modal .bloc_items .item h3 {
-  border: solid 3px blue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,7 +202,6 @@ nav i {
   transition: 300ms;
 }
 #modal .bloc_items .item img {
-  border: solid 3px red;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -204,19 +226,18 @@ nav i {
   align-items: center;
 }
 #modal_infos .bloc_items {
-  background-color: rgba(242, 242, 242, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   position: relative;
   padding: 100px 50px 30px;
 }
-#modal_infos .bloc_items h2 {
-  margin: 0 0 50px 0;
+#modal_infos .bloc_items ul {
+  color: white;
 }
 #modal_infos .bloc_items ul li:first-child {
-  background-color: gray;
   list-style: none;
   font-weight: 800;
   padding: 20px 10px;
@@ -225,6 +246,23 @@ nav i {
   list-style: circle;
   list-style-position: inside;
   padding: 5px;
+}
+#modal_infos .item {
+  max-width: 600px;
+}
+#modal_infos .item h2 {
+  font-weight: 800;
+  padding: 0 10px 20px;
+  color: white;
+}
+#modal_infos .item h4 {
+  font-weight: 800;
+  padding: 0 10px 20px;
+  color: white;
+}
+#modal_infos .item p {
+  padding: 0 10px 20px;
+  color: white;
 }
 
 .gif_loading {
@@ -294,6 +332,8 @@ main .bloc_starship_1 .death_star {
   width: 40vh;
 }
 main .bloc_meteors {
+  border: solid red 4px;
+  min-height: 150vh;
   padding-bottom: 300px;
   position: relative;
 }

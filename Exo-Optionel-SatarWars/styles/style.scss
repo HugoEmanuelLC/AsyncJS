@@ -111,6 +111,26 @@ img{
     max-width: 100%;
     max-height: 100%;
 }
+video{
+    position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 2000;
+}
+.video_off{
+    height: 0;
+    width: 0;
+}
+.video_on{
+    height: 30px;
+    width: 200px;
+}
+.btn_audio{
+    position: fixed;
+        top: 0 ;
+        right: 0;
+        z-index: 1999;
+}
 /* SCROLLBAR */
 // ::-webkit-scrollbar{
 //     background-color: #000428;
@@ -229,14 +249,15 @@ nav{
             opacity: 0.8;
         }
         .item{
-            @include Border_Test(white);
+            // @include Border_Test(white);
+            border:groove 1px white;
             position: relative;
             overflow: hidden;
             @include Dfx-JCc-AIc();
             transition: 300ms;
 
             h3{
-                @include Border_Test(blue);
+                // @include Border_Test(blue);
                 @include Dfx-JCc-AIc();
                 background-color: rgb(0, 0, 0, 0.4);
                 position: absolute;
@@ -251,7 +272,7 @@ nav{
                 }
             }
             img{
-                @include Border_Test(red);
+                // @include Border_Test(red);
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
@@ -278,24 +299,25 @@ nav{
     @include Dfx-JCc-AIc();
 
     .bloc_items{
-        background-color: $bg_color_2_2;
+        background-color: $bg_color_4;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        box-shadow: $box_shadow_2;
+        box-shadow: $box_shadow;
         // border: solid blue 5px;
         position: relative;
         padding: 100px 50px 30px;
 
-        h2{
-            // border: solid red 2px;
-            margin: 0 0 50px 0;
-        }
+        // h2{
+        //     // border: solid red 2px;
+        //     margin: 0 0 50px 0;
+        // }
         
         ul{
             // border: solid green 2px;
+            color: white;
             li:first-child{
-                background-color: gray;
+                // background-color: gray;
                 list-style: none;
                 font-weight: 800;
                 padding: 20px 10px;
@@ -307,10 +329,27 @@ nav{
             }
         }
     }
-    // .item{
-        // background-color: white;
-        // border: solid white 5px;
-    // }
+    .item{
+        // background-color: red;
+        max-width: 600px;
+        
+        h2{
+            // background-color: rgb(168, 168, 168);
+            font-weight: 800;
+            padding: 0 10px 20px;
+            color: white;
+        }
+        
+        h4{
+            font-weight: 800;
+            padding: 0 10px 20px;
+            color: white;
+        }
+        p{
+            padding:0 10px 20px;
+            color: white;
+        }
+    }
 
     // .btn_modal_close{
     //     z-index: +15;
@@ -396,7 +435,8 @@ main {
         }
     }
     .bloc_meteors{
-        // height: 300vh;
+        border: solid red 4px;
+        min-height: 150vh;
         padding-bottom: 300px;
         position: relative;
 
@@ -404,12 +444,12 @@ main {
             position: absolute;
 
         }
-        .multi_meteors{
+        // .multi_meteors{
             // border: solid 3px red;
             // position: absolute;
             //     top: 0;
             //     right: 0;
-        }
+        // }
         .meteor_fire{
             // border: solid 3px white;
             position: absolute;
