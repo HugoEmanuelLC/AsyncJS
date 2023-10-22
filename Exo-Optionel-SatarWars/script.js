@@ -53,7 +53,6 @@ async function modalInfos(value){
         modal_bloc_items_infos.innerText = ""
         if (background == null) {
             // si null, c'est la list de films
-            tab_img_movies.filter(f => {f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
             
             req.filter(ele => {
                 if (ele.title == value) {
@@ -82,11 +81,14 @@ async function modalInfos(value){
                     
                     item.appendChild(p)
                     modal_bloc_items_infos.append(item)
+                    setTimeout(() => {
+                        tab_img_movies.filter(f => {
+                            f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
+                    }, 300);
                 }
             })
+
         } else {
-            background.filter(f => {f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
-            
             req.filter(ele => {
                 if (ele.name == value) {
                     let item = document.createElement('div')
@@ -113,6 +115,10 @@ async function modalInfos(value){
         
                     item.append(h2,ul)
                     modal_bloc_items_infos.append(item)
+                    setTimeout(() => {
+                        background.filter(f => {
+                            f.nameTitle == value ? modal_infos.style.backgroundImage = `url('${f.urlImg}')` : ''})
+                    }, 300);
                 }
             })
         }
@@ -344,6 +350,7 @@ modal_btn_modal_close.addEventListener("click", () => {
 });
 modal_btn_modal_close_infos.addEventListener("click", () => {
     modalInfosOpenClose()
+    modal_infos.style.backgroundImage = `url('')`
 });
 
 

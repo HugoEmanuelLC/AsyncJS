@@ -250,7 +250,7 @@ nav{
         }
         .item{
             // @include Border_Test(white);
-            border:groove 1px white;
+            border:groove 1px gray;
             position: relative;
             overflow: hidden;
             @include Dfx-JCc-AIc();

@@ -177,7 +177,7 @@ nav i {
   opacity: 0.8;
 }
 #modal .bloc_items .item {
-  border: groove 1px white;
+  border: groove 1px gray;
   position: relative;
   overflow: hidden;
   display: flex;
